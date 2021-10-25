@@ -14,7 +14,7 @@ public class HangmanManager
 	
 	public Set<String> words()
 	{
-		return null;
+		return Richard;
 	}	
 	
 	public int guessesLeft()
@@ -24,9 +24,7 @@ public class HangmanManager
 		
 	public Set<Character> guesses()
 	{
-		for(int i=0; i<letter.size;i++){
-		return(letter.get)
-		}
+		return guesses
 	}
 	
 	public String pattern()

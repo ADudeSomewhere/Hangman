@@ -17,7 +17,7 @@ public class HangmanManager
 	
 	public Set<String> words()
 	{
-		return Richard;
+		return letter;
 	}	
 	
 	public int guessesLeft()

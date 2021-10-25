@@ -2,8 +2,8 @@ import java.util.*;
 
 public class HangmanManager
 {
-	private static HashSet<String> letter;
-	private static  String pattern;
+	private static HashSet<Character> letter;
+	private static String pattern;
 	public HangmanManager( List<String> dictionary, int length, int max )
 	{
 		letter = new HashSet<String>();
@@ -22,7 +22,9 @@ public class HangmanManager
 		
 	public Set<Character> guesses()
 	{
-		return null;
+		for(int i=0; i<letter.size;i++){
+		return(letter.get)
+		}
 	}
 	
 	public String pattern()

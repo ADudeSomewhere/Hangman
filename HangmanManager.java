@@ -35,6 +35,6 @@ public class HangmanManager
 	
 	public int record( char guess )
 	{
-		
+		A
 	}
 }

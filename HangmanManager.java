@@ -4,10 +4,11 @@ public class HangmanManager
 {
 	private static HashSet<Character> letter;
 	private static String pattern;
+	private static HashMap<String, HashSet<Strings>>;
 	public HangmanManager( List<String> dictionary, int length, int max )
 	{
 		letter = new HashSet<String>();
-		patter = "";
+		pattern = "";
 	}
 	
 	public Set<String> words()

@@ -2,6 +2,7 @@ import java.util.*;
 
 public class HangmanManager
 {
+	private static ArrayList<String> letter;
 	public HangmanManager( List<String> dictionary, int length, int max )
 	{
 		

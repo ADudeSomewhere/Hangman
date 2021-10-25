@@ -4,7 +4,7 @@ public class HangmanManager
 {
 	private static HashSet<Character> letter; //for guesses
 	private static String pattern;// for pattern
-	private static HashMap<String, HashSet<Strings>>;//for record
+	private static HashMap<String, HashSet<String>> temp;//for record
 	private static Hashset<String> Richard;// for dictionary
 	public HangmanManager( List<String> dictionary, int length, int max )
 	{
@@ -29,11 +29,17 @@ public class HangmanManager
 	
 	public String pattern()
 	{
-		return "";//aarfgasrgr
+		return "";
 	}
 	
 	public int record( char guess )
 	{
-		return 0;
+		for(int x = 0; x<pattern.length(); x++){
+			
+		}
+		letter.add(guess);
+		for(int x = 0; x<Richard.size(); x++){
+			
+		}
 	}
 }

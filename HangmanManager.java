@@ -3,9 +3,11 @@ import java.util.*;
 public class HangmanManager
 {
 	private static HashSet<String> letter;
+	private static  String pattern;
 	public HangmanManager( List<String> dictionary, int length, int max )
 	{
-		
+		letter = new HashSet<String>();
+		patter = "";
 	}
 	
 	public Set<String> words()

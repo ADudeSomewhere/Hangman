@@ -10,7 +10,7 @@ public class HangmanManager
 	{
 		letter = new HashSet<Character>();
 		for(int i=0;i<length;i++) {
-			pattern+=" ";
+			pattern+="_";
 		}	
 		
 	}

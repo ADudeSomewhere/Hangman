@@ -37,12 +37,9 @@ public class HangmanManager
 	
 	public int record( char guess )
 	{
-		for(int x = 0; x<pattern.length(); x++){
-			
-		}
 		letter.add(guess);
 		for(int x = 0; x<Richard.size(); x++){
-			
+			String t = R
 		}
 	}
 }

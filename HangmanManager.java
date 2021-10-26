@@ -7,7 +7,7 @@ public class HangmanManager
 	private static HashMap<String, HashSet<String>> temp;//for record
 	private static HashSet<String> Richard;// for dictionary
 	private static int maxguesses;
-	private static int currentguesses;
+	private static int guessesmade;
 	public HangmanManager( List<String> dictionary, int length, int max )
 	{
 		letter = new HashSet<Character>();
@@ -26,7 +26,7 @@ public class HangmanManager
 	
 	public int guessesLeft()
 	{
-		return maxguesses-currentguesses;
+		return maxguesses-guessesmade;
 	}
 		
 	public Set<Character> guesses()
@@ -45,5 +45,5 @@ public class HangmanManager
 		for(int x = 0; x<Richard.size(); x++){
 			String t = R
 		}
-	}// increment current guesses 1 higher
+	}// increment guessesmade 1 higher for every wrong guess 
 }

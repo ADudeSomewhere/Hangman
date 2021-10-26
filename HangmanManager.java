@@ -7,7 +7,7 @@ public class HangmanManager
 	private static HashMap<String, HashSet<String>> temp;//for record
 	private static HashSet<String> Richard;// for dictionary
 	private static int maxguesses;
-	private static int guessesmade;
+	private static int wrongguessesmade;
 	public HangmanManager( List<String> dictionary, int length, int max )
 	{
 		letter = new HashSet<Character>();
@@ -26,7 +26,7 @@ public class HangmanManager
 	
 	public int guessesLeft()
 	{
-		return maxguesses-guessesmade;
+		return maxguesses-wrongguessesmade;
 	}
 		
 	public Set<Character> guesses()

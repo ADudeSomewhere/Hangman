@@ -21,7 +21,11 @@ public class HangmanManager
 	
 	public Set<String> words()
 	{
-		return Richard;
+		Set<String> t = new Set<String>();
+		for(int x = 0; x<Richard.size(); x++){
+			t.add(Richard.get(X):
+		}
+		return t;
 	}	
 	
 	public int guessesLeft()

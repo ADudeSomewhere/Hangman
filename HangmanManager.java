@@ -43,7 +43,8 @@ public class HangmanManager
 	{
 		letter.add(guess);
 		for(int x = 0; x<Richard.size(); x++){
-			String t = Richard.replaceAll(^String.ValueOF(guess));
+			String m = String.valueOf(guess)
+			String t = Richard.replaceAll(^m);
 		}
 	}// increment guessesmade 1 higher for every wrong guess 
 }

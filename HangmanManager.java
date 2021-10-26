@@ -46,5 +46,5 @@ public class HangmanManager
 			String m = String.valueOf(guess);
 			String t = Richard.get(x).replaceAll(^m, "_");
 		}
-	}// increment guessesmade 1 higher for every wrong guess 
+	}// increment wrongguessesmade 1 higher for every wrong guess 
 }

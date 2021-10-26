@@ -5,7 +5,7 @@ public class HangmanManager
 	private static HashSet<Character> letter; //for guesses
 	private static String pattern;// for pattern
 	private static HashMap<String, HashSet<String>> temp;//for record
-	private static HashSet<String> Richard;// for dictionary
+	private static List<String> Richard;// for dictionary
 	private static int maxguesses;
 	private static int wrongguessesmade;
 	public HangmanManager( List<String> dictionary, int length, int max )
@@ -14,7 +14,7 @@ public class HangmanManager
 		for(int i=0;i<length;i++) {
 			pattern+="_";
 		}	
-		Richard=(HashSet<String>) dictionary;
+		Richard= dictionary;
 		maxguesses=max;
 		
 	}

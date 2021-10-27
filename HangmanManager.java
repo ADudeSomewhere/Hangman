@@ -14,7 +14,7 @@ public class HangmanManager
 		for(int i=0;i<length;i++) {
 			pattern+=" ";
 		}
-		Richard=(HashSet<String>) dictionary;
+		Richard=(HashSet<String>) dictionary; // do stuff with appropriate length 
 		maxguesses=max;}
 		else
 			throw new IllegalArgumentException("The Dictionary(input 1) must have at least one word, length(input 2) must be 1 or greater, and the number of wrong guesses allowed must be 1 or greater");

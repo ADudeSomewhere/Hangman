@@ -8,15 +8,16 @@ public class HangmanManager
 	private static HashSet<String> Richard;// for dictionary
 	private static int maxguesses;
 	private static int wrongguessesmade;
-	public HangmanManager( List<String> dictionary, int length, int max )
-	{
+	public HangmanManager( List<String> dictionary, int length, int max ){
+		if(dictionary.size()>=1&&max>=0&& length>=1) {
 		letter = new HashSet<Character>();
 		for(int i=0;i<length;i++) {
-			pattern+="_";
-		}	
-		Richard= dictionary;
-		maxguesses=max;
-		
+			pattern+=" ";
+		}
+		Richard=(HashSet<String>) dictionary;
+		maxguesses=max;}
+		else
+			throw new IllegalArgumentException("The Dictionary(input 1) must have at least one word, length(input 2) must be 1 or greater, and the number of wrong guesses allowed must be 1 or greater");
 	}
 	
 	public Set<String> words()

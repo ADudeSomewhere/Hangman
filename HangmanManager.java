@@ -42,6 +42,8 @@ public class HangmanManager
 	
 	public int record( char guess )
 	{
+		if(maxguesses-wrongguessesmade<1||Richard.size()==0) {
+		if(!letter.contains(guess)) {
 		ArrayList<String> Carl= (ArrayList<String>)Richard.stream().collect(Collectors.toList());
 		letter.add(guess);
 		for(int x = 0; x<Carl.size(); x++){
@@ -66,5 +68,9 @@ public class HangmanManager
 			int cnt = 0;
 			for(int x = 0; x<
 		}
+		}
+		else {throw new IllegalArgumentException("letter has already been guessed");}
+		}
+		else{throw new IllegalStateException("out of guesses/out of options");}
 	}// increment wrongguessesmade 1 higher for every wrong guess 
 }

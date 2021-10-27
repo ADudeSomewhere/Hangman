@@ -45,6 +45,7 @@ public class HangmanManager
 	
 	public int record( char guess )
 	{
+		ArrayList<String> Carl= (ArrayList<String>)Richard.stream().collect(Collectors.toList());
 		letter.add(guess);
 		for(int x = 0; x<Carl.size(); x++){
 			String m = String.valueOf(guess);

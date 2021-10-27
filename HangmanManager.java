@@ -62,5 +62,9 @@ public class HangmanManager
 			}
 		}
 		ArrayList<Integer> fLength = new ArrayList<Integer>();
+		while(temp.hasKey()){
+			int cnt = 0;
+			for(int x = 0; x<
+		}
 	}// increment wrongguessesmade 1 higher for every wrong guess 
 }

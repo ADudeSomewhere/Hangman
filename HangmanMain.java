@@ -13,14 +13,14 @@ import java.io.*;
 
 public class HangmanMain 
 {
-	public static final boolean SHOW_COUNT = true; // show words left
+	public static final boolean SHOW_COUNT = false; // broke when using dictionary so I set to false from true
 
 	public static void main(String[] args) throws FileNotFoundException {
 		System.out.println("Welcome to the hangman game.");
 		System.out.println();
 
 		// open the dictionary file and read dictionary into an ArrayList
-		Scanner file = new Scanner(new File(  "dictionary-tiny.txt" ));
+		Scanner file = new Scanner(new File(  "dictionary.txt" )); //changed for fun
 		List<String> dictionary = new ArrayList<String>();
 		while (file.hasNext()) 
 		{
@@ -53,9 +53,10 @@ public class HangmanMain
 		{
 			System.out.println("guesses : " + hangman.guessesLeft());
 			if (SHOW_COUNT) {
-				System.out.println(hangman.words().size() + " words left: "
-						+ hangman.words());
+				System.out.println(hangman.words().size() + " words left: " + hangman.words());
 			}
+			else
+				System.out.println(hangman.words().size());//not needed just for fun
 			
 			System.out.println("guessed : " + hangman.guesses());
 			System.out.println("current : " + hangman.pattern());
@@ -67,11 +68,11 @@ public class HangmanMain
 			} else {
 				int count = hangman.record(ch);
 				if (count == 0) {
-					System.out.println("Sorry, there are no " + ch + "'s");
+					System.out.println(" Sorry, there are no " + ch + "'s");
 				} else if (count == 1) {
-					System.out.println("Yes, there is one " + ch);
+					System.out.println(" Yes, there is one " + ch);
 				} else {
-					System.out.println("Yes, there are " + count + " " + ch
+					System.out.println(" Yes, there are " + count + " " + ch
 							+ "'s");
 				}
 			}

@@ -44,7 +44,7 @@ public class HangmanManager
 	
 	public String pattern()
 	{
-		return "pattern";
+		return pattern;
 	}
 	
 	public int record( char guess )

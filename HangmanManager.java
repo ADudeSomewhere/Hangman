@@ -88,6 +88,7 @@ public class HangmanManager
 				for(int x = 0; x<map.get(zzz).size(); x++){
 					Richard.add(map.get(zzz).get(x));
 				}
+				pattern = zzz;
 			}
 			else {throw new IllegalArgumentException("letter has already been guessed");}
 		}

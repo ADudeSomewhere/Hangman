@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class HangmanManager
+{public class HangmanManager
 {
 	private static HashSet<Character> letter; //for guesses
 	private static String pattern;// for pattern
@@ -49,8 +50,10 @@ public class HangmanManager
 	
 	public int record( char guess )
 	{
+		System.out.println((maxguesses-wrongguessesmade)+" "+Richard.size());
 		if(maxguesses-wrongguessesmade<1||Richard.size()==0) {
 			if(!letter.contains(guess)) {
+				System.out.print(guess);
 				temp = new HashMap<String, ArrayList<String>>();
 				letter.add(guess); // adds a guess to letter
 				for(int x = 0; x<Richard.size(); x++){ //goes through Richard to sort all options

@@ -11,6 +11,10 @@ public class HangmanManager
 	public HangmanManager( List<String> dictionary, int length, int max ){
 		if(dictionary.size()>=1&&max>=0&& length>=1) {
 		letter = new HashSet<Character>();
+		pattern = "";
+		Richard= new ArrayList<String>();
+		maxguesses=max;
+		wrongguessesmade=0;
 		for(int i=0;i<length;i++) {
 			pattern+="-";
 		}
@@ -18,7 +22,7 @@ public class HangmanManager
 			if(dictionary.get(i).length()==length);
 			Richard.add(dictionary.get(i));
 		}
-		maxguesses=max;}
+		}
 		else
 			throw new IllegalArgumentException("The Dictionary(input 1) must have at least one word, length(input 2) must be 1 or greater, and the number of wrong guesses allowed must be 1 or greater");
 	}

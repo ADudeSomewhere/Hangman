@@ -16,7 +16,7 @@ public class HangmanManager
 		}
 		for(int x = 0; x<dictionary.size(); x++){
 			if(dictionary.get(x).length()==length);
-				Richard.add(Dictionary.get(x));
+				Richard.add(dictionary.get(x));
 		}
 		maxguesses=max;}
 		else

@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class HangmanManager
-{public class HangmanManager
 {
 	private static HashSet<Character> letter; //for guesses
 	private static String pattern;// for pattern
@@ -9,20 +8,21 @@ public class HangmanManager
 	private static List<String> Richard;// for dictionary
 	private static int maxguesses;
 	private static int wrongguessesmade;
+	
 	public HangmanManager( List<String> dictionary, int length, int max ){
 		if(dictionary.size()>=1&&max>=0&& length>=1) {
-		letter = new HashSet<Character>();
-		pattern = "";
-		Richard= new ArrayList<String>();
-		maxguesses=max;
-		wrongguessesmade=0;
-		for(int i=0;i<length;i++) {
-			pattern+="-";
-		}
-		for(int i=0;i<dictionary.size();i++) {
-			if(dictionary.get(i).length()==length);
-			Richard.add(dictionary.get(i));
-		}
+			letter = new HashSet<Character>();
+			pattern = "";
+			Richard = new ArrayList<String>();
+			maxguesses = max;
+			wrongguessesmade = 0;
+			for(int i=0;i<length;i++) {
+				pattern+="-";
+			}
+			for(int i=0;i<dictionary.size();i++) {
+				if(dictionary.get(i).length()==length) //removed semicolon so that the add line will be dependent on if again
+					Richard.add(dictionary.get(i));
+			}
 		}
 		else
 			throw new IllegalArgumentException("The Dictionary(input 1) must have at least one word, length(input 2) must be 1 or greater, and the number of wrong guesses allowed must be 1 or greater");
@@ -50,8 +50,7 @@ public class HangmanManager
 	
 	public int record( char guess )
 	{
-		System.out.println((maxguesses-wrongguessesmade)+" "+Richard.size());
-		if(maxguesses-wrongguessesmade<1||Richard.size()==0) {
+		if(maxguesses-wrongguessesmade>=0||Richard.size()!=0) {//returned false positive, needed to inverse signs
 			if(!letter.contains(guess)) {
 				System.out.print(guess);
 				temp = new HashMap<String, ArrayList<String>>();
@@ -98,12 +97,23 @@ public class HangmanManager
 				for(int x = 0; x<temp.get(zzz).size(); x++){
 					Richard.add(temp.get(zzz).get(x));
 				}
-				pattern=zzz;
+				
+				for(int x = 0; x<pattern.length(); x++) {//need to have only "-" be overwritten
+					if(!zzz.substring(x, x+1).equals("-") && !zzz.substring(x, x+1).equals(pattern.substring(x, x+1)) && pattern.substring(x, x+1).equals("-"))
+						if(x!=pattern.length()-1) {
+							pattern = pattern.substring(0, x) + zzz.substring(x, x+1) + pattern.substring(x+1);
+						} else {
+							pattern = pattern.substring(0, x) + zzz.substring(x, x+1);
+						}
+				}
+				
 				int cnt=0;
 				for(int x=0;x<pattern.length();x++) {
 					if(pattern.substring(x,x+1).equals(String.valueOf(guess)))
 						cnt++;
 				}
+				if(cnt==0)
+					wrongguessesmade++;//didn't count wrong guesses originally
 				return cnt;
 			}
 			else {throw new IllegalArgumentException("letter has already been guessed");}

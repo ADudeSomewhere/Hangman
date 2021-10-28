@@ -12,17 +12,20 @@ public class HangmanManager
 		if(dictionary.size()>=1&&max>=0&& length>=1) {
 		letter = new HashSet<Character>();
 		for(int i=0;i<length;i++) {
-			pattern+=" ";
+			pattern+="-";
 		}
-		Richard=dictionary;
+		for(int i=0;i<dictionary.size();i++) {
+			if(dictionary.get(i).length()==length);
+			Richard.add(dictionary.get(i));
+		}
 		maxguesses=max;}
 		else
 			throw new IllegalArgumentException("The Dictionary(input 1) must have at least one word, length(input 2) must be 1 or greater, and the number of wrong guesses allowed must be 1 or greater");
 	}
 	
-	public Set<String> words()
+	public List<String> words()
 	{
-		return null;
+		return Richard;
 	}	
 	
 	public int guessesLeft()
@@ -45,15 +48,15 @@ public class HangmanManager
 		if(maxguesses-wrongguessesmade<1||Richard.size()==0) {
 			if(!letter.contains(guess)) {
 				temp = new HashMap<String, ArrayList<String>>();
-				letter.add(guess); // adds a gues to letter
+				letter.add(guess); // adds a guess to letter
 				for(int x = 0; x<Richard.size(); x++){ //goes through Richard to sort all options
 					String m = String.valueOf(guess);
 					String t = Richard.get(x);
 					for(int y = 0; y<t.length();y++){ //creates key for each option
 						if(!t.substring(y, y+1).equals(m) && y!=t.length()-1)
-							t= t.substring(0, y) + "_" + t.substring(y+1);
+							t= t.substring(0, y) + "-" + t.substring(y+1);
 						else if(!t.substring(y, y+1).equals(m))
-							t = t.substring(0, y) + "_";
+							t = t.substring(0, y) + "-";
 					}	
 					if(temp.get(t)==null) { //adds option to family in temp
 						ArrayList<String> temper = new ArrayList<String>();
@@ -79,19 +82,19 @@ public class HangmanManager
 						min = fLength.get(x);
 					}
 				}
-				ArrayList<String> xxx = new ArrayList<String>();
-				for(String s : temp.keySet()){
-					xxx.add(s);
+				ArrayList<String> xxx=new ArrayList<String>();
+				for(String s:temp.keySet()) {
+					xxx.add(s);	
 				}
 				String zzz = xxx.get(pos);
 				Richard = new ArrayList<String>();
 				for(int x = 0; x<temp.get(zzz).size(); x++){
 					Richard.add(temp.get(zzz).get(x));
 				}
-				pattern = zzz;
-				int cnt = 0;
-				for(int x = 0; x<pattern.length(); x++){
-					if(pattern.substring(x, x+1.equals(String.valueOf(guess))
+				pattern=zzz;
+				int cnt=0;
+				for(int x=0;x<pattern.length();x++) {
+					if(pattern.substring(x,x+1).equals(String.valueOf(guess)))
 						cnt++;
 				}
 				return cnt;

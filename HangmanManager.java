@@ -5,19 +5,16 @@ public class HangmanManager
 	private static HashSet<Character> letter; //for guesses
 	private static String pattern;// for pattern
 	private static HashMap<String, ArrayList<String>> temp;//for record
-	private static HashSet<String> Richard;// for dictionary
+	private static List<String> Richard;// for dictionary
 	private static int maxguesses;
 	private static int wrongguessesmade;
 	public HangmanManager( List<String> dictionary, int length, int max ){
 		if(dictionary.size()>=1&&max>=0&& length>=1) {
 		letter = new HashSet<Character>();
 		for(int i=0;i<length;i++) {
-			pattern+="-";
+			pattern+=" ";
 		}
-		for(int x = 0; x<dictionary.size(); x++){
-			if(dictionary.get(x).length()==length);
-				Richard.add(dictionary.get(x));
-		}
+		Richard=dictionary;
 		maxguesses=max;}
 		else
 			throw new IllegalArgumentException("The Dictionary(input 1) must have at least one word, length(input 2) must be 1 or greater, and the number of wrong guesses allowed must be 1 or greater");
@@ -25,7 +22,7 @@ public class HangmanManager
 	
 	public Set<String> words()
 	{
-		return Richard;
+		return null;
 	}	
 	
 	public int guessesLeft()
@@ -40,39 +37,38 @@ public class HangmanManager
 	
 	public String pattern()
 	{
-		return pattern;
+		return "pattern";
 	}
 	
 	public int record( char guess )
 	{
 		if(maxguesses-wrongguessesmade<1||Richard.size()==0) {
 			if(!letter.contains(guess)) {
-				temp = new HashMap<String, ArrayList<String>>;
-				ArrayList<String> Carl= (ArrayList<String>)Richard.stream().collect(Collectors.toList());//converts Richard
+				temp = new HashMap<String, ArrayList<String>>();
 				letter.add(guess); // adds a gues to letter
-				for(int x = 0; x<Carl.size(); x++){ //goes through Carl to sort all options
+				for(int x = 0; x<Richard.size(); x++){ //goes through Richard to sort all options
 					String m = String.valueOf(guess);
-					String t = Carl.get(x);
+					String t = Richard.get(x);
 					for(int y = 0; y<t.length();y++){ //creates key for each option
 						if(!t.substring(y, y+1).equals(m) && y!=t.length()-1)
-							t= t.substring(0, y) + "-" + t.substring(y+1);
+							t= t.substring(0, y) + "_" + t.substring(y+1);
 						else if(!t.substring(y, y+1).equals(m))
-							t = t.substring(0, y) + "-";
+							t = t.substring(0, y) + "_";
 					}	
 					if(temp.get(t)==null) { //adds option to family in temp
 						ArrayList<String> temper = new ArrayList<String>();
-						temper.add(Carl.get(x));
+						temper.add(Richard.get(x));
 						temp.put(t, temper);
 					}
 					else{
 						ArrayList<String> ab = temp.get(t);
-						ab.add(Carl.get(x));
+						ab.add(Richard.get(x));
 						temp.put(t, ab);
 					}
 				}
 				ArrayList<Integer> fLength = new ArrayList<Integer>();
-				for(String s : temp.entrySet()){ //goes through map and finds biggest family
-					int cnt = map.get(s).size();
+				for(String s : temp.keySet()){ //goes through map and finds biggest family
+					int cnt=temp.get(s).size();
 					fLength.add(cnt);
 				}
 				int pos = -1;//place holder
@@ -83,12 +79,11 @@ public class HangmanManager
 						min = fLength.get(x);
 					}
 				}
-				String zzz = temp.entrySet().get(pos);//CHANGE THIS!!!!!!
-				Richard = new HashSet<String>();
-				for(int x = 0; x<map.get(zzz).size(); x++){
-					Richard.add(map.get(zzz).get(x));
+				String zzz = temp.keySet().get(pos);
+				Richard = new ArrayList<String>();
+				for(int x = 0; x<temp.get(zzz).size(); x++){
+					Richard.add(temp.get(zzz).get(x));
 				}
-				pattern = zzz;
 			}
 			else {throw new IllegalArgumentException("letter has already been guessed");}
 		}

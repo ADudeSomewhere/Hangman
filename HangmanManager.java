@@ -79,7 +79,11 @@ public class HangmanManager
 						min = fLength.get(x);
 					}
 				}
-				String zzz = temp.keySet().get(pos);
+				ArrayList<String> xxx = new ArrayList<String>();
+				for(String s : temp.keySet()){
+					xxx.add(s);
+				}
+				String zzz = xxx.get(pos);
 				Richard = new ArrayList<String>();
 				for(int x = 0; x<temp.get(zzz).size(); x++){
 					Richard.add(temp.get(zzz).get(x));

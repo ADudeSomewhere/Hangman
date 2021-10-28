@@ -88,6 +88,13 @@ public class HangmanManager
 				for(int x = 0; x<temp.get(zzz).size(); x++){
 					Richard.add(temp.get(zzz).get(x));
 				}
+				pattern = zzz;
+				int cnt = 0;
+				for(int x = 0; x<pattern.length(); x++){
+					if(pattern.substring(x, x+1.equals(String.valueOf(guess))
+						cnt++;
+				}
+				return cnt;
 			}
 			else {throw new IllegalArgumentException("letter has already been guessed");}
 		}
